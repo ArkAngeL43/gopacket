@@ -25,11 +25,14 @@ import (
 	"github.com/google/gopacket/tcpassembly/tcpreader"
 )
 
-var iface = flag.String("i", "eth0", "Interface to get packets from")
-var fname = flag.String("r", "", "Filename to read from, overrides -i")
-var snaplen = flag.Int("s", 1600, "SnapLen for pcap packet capture")
-var filter = flag.String("f", "tcp and dst port 80", "BPF filter for pcap")
-var logAllPackets = flag.Bool("v", false, "Logs every packet in great detail")
+var (
+	iface = flag.String("i", "eth0", "Interface to get packets from")
+	fname = flag.String("r", "", "Filename to read from, overrides -i")
+	snaplen = flag.Int("s", 1600, "SnapLen for pcap packet capture")
+	filter = flag.String("f", "tcp and dst port 80", "BPF filter for pcap")
+	logAllPackets = flag.Bool("v", false, "Logs every packet in great detail")
+)
+
 
 // Build a simple HTTP request parser using tcpassembly.StreamFactory and tcpassembly.Stream interfaces
 
